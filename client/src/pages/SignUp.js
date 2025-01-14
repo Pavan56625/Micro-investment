@@ -3,11 +3,13 @@ import React from 'react';
 import { useState } from 'react';
 import axios from 'axios';
 import backgroundImage from '../assests/backgroud.jpg';
+import { useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
 const [email, setEmail] = useState("");
 const[password, setPassword] =useState("");
 const[message, setMessage] = useState("");
+const navigate = useNavigate();
 
 const handleSubmit = async (e) => {
   e.preventDefault();
@@ -17,9 +19,11 @@ const handleSubmit = async (e) => {
       email,
       password,
     });
-    setMessage(response.data.message);
-    setEmail("");
-    setPassword("");
+    
+    if (response.status === 201) {
+      setMessage("signIn successful!");
+      navigate("/login"); // Navigate to the login
+    }
   }catch(error){
     setMessage(error.response?.data?.message || "signup failed");
   }

@@ -9,7 +9,7 @@ import Saving from './components/Saving';
 import SavingMonitor from './components/SavingMonitor';
 import Autopay from './components/Autopay';
 import About from './pages/About';
-
+import ForgotPassword from './pages/ForgotPassword';
 
 function App() {
   return (
@@ -24,6 +24,7 @@ function App() {
         <Route path="/savings-goal" element={<Saving/>} />
         <Route path="/autopay-setup" element={<Autopay/>} />
         <Route path="/savingsmonitor" element={<SavingMonitor/>} />
+        <Route path="/forgotPassword" element={<ForgotPassword/>} />
       </Routes>
     </Router>
     </div>
